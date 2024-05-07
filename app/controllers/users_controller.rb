@@ -16,13 +16,31 @@ class UsersController < ApplicationController
   end
 
   def add
-    input_username = params.fetch("path_id")
-  
+    input_username = params[:input_username]  # Fetching from form data, not URL parameter
+
     a_new_user = User.new
     a_new_user.username = input_username
   
     a_new_user.save
   
     redirect_to("/users/" + a_new_user.username.to_s)
+  end
+
+  def edit
+
+    the_id = params.fetch("modify_id")
+
+    matching_users = User.where({ :id => the_id })
+  
+    the_user = matching_users.at(0)
+  
+    input_username = params.fetch("query_username")
+  
+    the_user.username = input_username
+
+    the_user.save
+  
+    redirect_to("/users/" + the_user.username.to_s)
+
   end
 end

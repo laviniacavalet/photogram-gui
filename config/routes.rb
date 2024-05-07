@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 get("/", { :controller => "home", :action => "homepage" })
 get("/users", { :controller => "users", :action => "index" })
 get("/users/:path_username", { :controller => "users", :action => "show" })
-post("/add_user/:path_id", { :controller => "users", :action => "add" })
+post("/add_user", { :controller => "users", :action => "add" })
+post("/edit_user/:modify_id", { :controller => "users", :action => "edit" })
 
 get("/photos", { :controller => "photos", :action => "index" })
 get("/photos/:path_id", { :controller => "photos", :action => "show" })

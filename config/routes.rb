@@ -7,6 +7,6 @@ get("/photos/:path_id", { :controller => "photos", :action => "show" })
 get("/delete_photo/:toast_id",{ :controller => "photos", :action => "bye" })
 get("/insert_photo",{ :controller => "photos", :action => "create" })
 post("/update_photo/:modify_id",{ :controller => "photos", :action => "update" })
-
+post("/add_comment", { :controller => "photos", :action => "comment" })
 
 end
